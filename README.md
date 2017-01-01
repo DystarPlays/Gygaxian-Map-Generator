@@ -6,5 +6,13 @@ Gary Gygax Map Tables: https://www.reddit.com/r/DnDBehindTheScreen/comments/4zqe
 Recursive Backtracking: https://en.wikipedia.org/wiki/Maze_generation_algorithm#Recursive_backtracker
 
 Special Thanks:
+
 /u/Erectile-Reptile - For showing me the tables
+
 Daniel Shiffman (Coding Rainbow) - For introducing me to recursive backtracking
+
+Potential Additions:
+
+- Water
+
+- Visual Features (Hills, Ponds, etc.)
