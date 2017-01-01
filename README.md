@@ -1,5 +1,5 @@
 # Gygaxian-Map-Generator
-A program to make terrain maps using Gary Gygax's random map tables
+A program to make terrain maps combining Gary Gygax's random map tables and Recursive Backtracking
 
 Gary Gygax Map Tables: https://www.reddit.com/r/DnDBehindTheScreen/comments/4zqe25/stolen_tables_from_gygax/?st=isd5gqn3&sh=049485da
 
@@ -7,9 +7,9 @@ Recursive Backtracking: https://en.wikipedia.org/wiki/Maze_generation_algorithm#
 
 Special Thanks:
 
-/u/Erectile-Reptile - For showing me the tables
+- /u/Erectile-Reptile - For showing me the tables
 
-Daniel Shiffman (Coding Rainbow) - For introducing me to recursive backtracking
+- Daniel Shiffman (Coding Rainbow) - For introducing me to recursive backtracking
 
 Potential Additions:
 
