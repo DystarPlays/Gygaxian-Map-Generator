@@ -110,7 +110,7 @@ namespace Gygaxian_Map_Generator_v0._2
                     {
                         if (c.Rectangle.Contains(mouseState.Position))
                         {
-                            Debug.Print(c.Terrain);
+                            Window.Title = c.Terrain;
                         }
                     }
                 }
