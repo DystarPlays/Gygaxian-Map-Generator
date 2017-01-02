@@ -146,22 +146,22 @@ namespace Gygaxian_Map_Generator_v0._2
             if(Index.X+1<Rows)
                 if (!Cells[(int)Index.X + 1, (int)Index.Y].Processed)
                     result.Add(Cells[(int)Index.X + 1, (int)Index.Y]);
-            //TopLeft
-            if (Index.Y - 1 >= 0 && Index.X - 1 >= 0)
-                if (!Cells[(int)Index.X-1, (int)Index.Y - 1].Processed)
-                    result.Add(Cells[(int)Index.X-1, (int)Index.Y - 1]);
-            //TopRight
-            if (Index.Y - 1 >= 0 && Index.X + 1 < Rows)
-                if (!Cells[(int)Index.X + 1, (int)Index.Y - 1].Processed)
-                    result.Add(Cells[(int)Index.X+1, (int)Index.Y - 1]);
-            //BottomLeft
-            if(Index.Y + 1 < Rows && Index.X - 1 >= 0)
-                if (!Cells[(int)Index.X-1, (int)Index.Y + 1].Processed)
-                result.Add(Cells[(int)Index.X-1, (int)Index.Y + 1]);
-            //BottomRight
-            if (Index.Y + 1 < Rows && Index.X + 1 < Rows)
-                if (!Cells[(int)Index.X + 1, (int)Index.Y + 1].Processed)
-                    result.Add(Cells[(int)Index.X+1, (int)Index.Y + 1]);
+            ////TopLeft
+            //if (Index.Y - 1 >= 0 && Index.X - 1 >= 0)
+            //    if (!Cells[(int)Index.X-1, (int)Index.Y - 1].Processed)
+            //        result.Add(Cells[(int)Index.X-1, (int)Index.Y - 1]);
+            ////TopRight
+            //if (Index.Y - 1 >= 0 && Index.X + 1 < Rows)
+            //    if (!Cells[(int)Index.X + 1, (int)Index.Y - 1].Processed)
+            //        result.Add(Cells[(int)Index.X+1, (int)Index.Y - 1]);
+            ////BottomLeft
+            //if(Index.Y + 1 < Rows && Index.X - 1 >= 0)
+            //    if (!Cells[(int)Index.X-1, (int)Index.Y + 1].Processed)
+            //    result.Add(Cells[(int)Index.X-1, (int)Index.Y + 1]);
+            ////BottomRight
+            //if (Index.Y + 1 < Rows && Index.X + 1 < Rows)
+            //    if (!Cells[(int)Index.X + 1, (int)Index.Y + 1].Processed)
+            //        result.Add(Cells[(int)Index.X+1, (int)Index.Y + 1]);
 
             if (result.Count == 0)
                 return null;

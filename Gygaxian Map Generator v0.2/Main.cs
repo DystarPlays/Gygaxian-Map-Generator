@@ -15,7 +15,7 @@ namespace Gygaxian_Map_Generator_v0._2
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         bool Started = false;
-        int cellSize = 6;
+        int cellSize = 10;
         int cols, rows;
         Cell[,] Cells;
         Cell currentCell;
