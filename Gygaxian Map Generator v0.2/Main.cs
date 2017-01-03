@@ -14,12 +14,10 @@ namespace Gygaxian_Map_Generator_v0._2
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        bool Started = false;
         int cellSize = 10;
         int cols, rows;
         Cell[,] Cells;
-        Cell currentCell;
-        Stack<Cell> Stack;
+        Walker walker;
 
         public Main()
         {
@@ -32,7 +30,7 @@ namespace Gygaxian_Map_Generator_v0._2
             rows = Convert.ToInt32(Math.Floor(Convert.ToDouble(graphics.PreferredBackBufferHeight / cellSize)));
             Cells = new Cell[cols, rows];
             this.IsMouseVisible = true;
-            Stack = new Stack<Cell>();            
+            walker = new Walker();          
         }
 
         /// <summary>
@@ -57,7 +55,6 @@ namespace Gygaxian_Map_Generator_v0._2
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            
             // TODO: use this.Content to load your game content here
             for(int col = 0; col < cols; col++)
             {
@@ -88,27 +85,20 @@ namespace Gygaxian_Map_Generator_v0._2
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+            
             MouseState mouseState = Mouse.GetState();
-            if(mouseState.LeftButton == ButtonState.Pressed )
+            if (mouseState.LeftButton == ButtonState.Pressed)
             {
-                if (Started == false)
+                foreach (Cell c in Cells)
                 {
-                    Started = true;
-                    foreach (Cell c in Cells)
+                    if (c.Rectangle.Contains(mouseState.Position))
                     {
-                        if (c.Rectangle.Contains(mouseState.Position))
+                        //set Current Cell
+                        if (!walker.Started)
                         {
-                            //set Current Cell
-                            currentCell = c;
-                            c.RollInitial();
+                            walker.Start(c);
                         }
-                    }
-                }
-                else
-                {
-                    foreach (Cell c in Cells)
-                    {
-                        if (c.Rectangle.Contains(mouseState.Position))
+                        else
                         {
                             Window.Title = c.Terrain;
                         }
@@ -116,29 +106,9 @@ namespace Gygaxian_Map_Generator_v0._2
                 }
             }
 
-            if (currentCell != null)
-            {
-                currentCell.Processed = true;
-                currentCell.Update();
-                Cell Next =  currentCell.checkNeighbours(Cells,cols,rows);
-                if (Next != null)
-                {
-                    Next.Processed = true;
-                    Stack.Push(currentCell);
-                    
-                    Next.Terrain = currentCell.RollNext();
-                    
-                    currentCell = Next;
-                }
-                else if(Stack.Count>0)
-                {
-                    currentCell = Stack.Pop();
-                }
-            }
-
             // TODO: Add your update logic here
-
-                base.Update(gameTime);
+            walker.Update(Cells, cols, rows);
+            base.Update(gameTime);
         }
 
         /// <summary>
@@ -154,7 +124,7 @@ namespace Gygaxian_Map_Generator_v0._2
             {
                 spriteBatch.Draw(c.Texture, c.Position);
             }
-            //Debug.Print(Stack.Count.ToString()+" " + (1 / (float)gameTime.ElapsedGameTime.TotalSeconds).ToString());
+           
             base.Draw(gameTime);
             spriteBatch.End();
         }

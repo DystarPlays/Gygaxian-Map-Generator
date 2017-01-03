@@ -98,11 +98,11 @@ namespace Gygaxian_Map_Generator_v0._2
                 }
                 else if (this.Terrain == "Hills")
                 {
-                    SetColorTexture(Color.Gray, this.size);
+                    SetColorTexture(Color.DarkGray, this.size);
                 }
                 else if (this.Terrain == "Mountains")
                 {
-                    SetColorTexture(Color.DarkGray, this.size);
+                    SetColorTexture(Color.Gray, this.size);
                 }
                 else if (this.Terrain == "Marsh")
                 {
